@@ -3,7 +3,7 @@ import argparse
 import logging
 import sys
 
-from main import reorganize_files
+from main.main import reorganize_files
 
 
 PROGRAM_NAME = "Recovery Sort"
