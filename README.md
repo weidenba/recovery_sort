@@ -1,22 +1,22 @@
 # Recovery Sort
 [![Build Status](https://travis-ci.org/weidenba/recovery_sort.svg)](https://travis-ci.org/weidenba/recovery_sort)
 
-Re-organize files by type and date; filter duplicates and unintended files
+Re-organize files by type and date; filter duplicates and unintended files.
 
-# Requirements
+## Requirements
 Since Recovery Sort relies on file/magic it will not run on Windows at the moment.  
 
-* Python 3
+* Python >= 3.4
 * PIP
 
-# Basic Usage
+## Basic Usage
 ```sh
 $ sudo -EH pip3 install -r requirements.txt
 $ ./recovery_sort.py INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
 For more advanced features and optional filtering of unintended files have a look at the "--help" option.
 
-# Result
+## Result
 Recovery sort creates new folders and copy the files into them.  
 New file paths are generated with this template: *MIME/TYPE/ModificationDate_OriginalFileName*
 
@@ -35,3 +35,8 @@ The resulting folder/file structure will look like this:
 
 ```
 Duplicates are not copied.
+
+## Future Work
+* blacklist filter
+* photorec thumbnail file filter
+* MP3 renaming based on Meta-Data
