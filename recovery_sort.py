@@ -17,8 +17,6 @@ def _setup_argparser():
     parser = argparse.ArgumentParser(description="{} - {}".format(PROGRAM_NAME, PROGRAM_DESCRIPTION))
     parser.add_argument('-V', '--version', action='version', version="{} {}".format(PROGRAM_NAME, PROGRAM_VERSION))
     parser.add_argument("-d", "--debug", action="store_true", default=False, help="print debug messages")
-    parser.add_argument("-t", "--ignore_thumbnails", action="store_true", default=False, help="ignore recoverd thumbnail files")
-    parser.add_argument("-s", "--ignore_small_media", action="store_true", default=False, help="ignore small media files")
     parser.add_argument("input_dir", help="input directory")
     parser.add_argument("out_dir", help="output directory")
     return parser.parse_args()
