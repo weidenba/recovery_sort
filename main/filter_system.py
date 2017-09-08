@@ -5,9 +5,8 @@ from pluginbase import PluginBase
 
 class FilterSystem():
 
-    def __init__(self, file_stock, filter_list):
-        self._init_pugins()
-        return self._apply_filters(file_stock, filter_list)
+    def __init__(self):
+        self._init_plugins()
 
     def _init_plugins(self):
         self.plugin_base = PluginBase(package='filter_plugins')
@@ -21,7 +20,7 @@ class FilterSystem():
     def register_plugin(self, name, filter_function):
         self.filter_plugins[name] = filter_function
 
-    def _apply_filters(self, file_stock, filter_list):
+    def apply_filters(self, file_stock, filter_list):
         for filter_name in filter_list:
             if filter_name in self.filter_plugins:
                 file_stock = self.filter_plugins[filter_name](file_stock)

@@ -7,7 +7,8 @@ from main.filter_system import FilterSystem
 
 def reorganize_files(input_dir, out_dir, filter_list):
     file_stock = stocktaking(input_dir)
-    file_stock = FilterSystem(file_stock, filter_list)
+    filter_system = FilterSystem()
+    file_stock = filter_system.apply_filters(file_stock, filter_list)
     _store_to_new_location(file_stock, out_dir)
 
 
