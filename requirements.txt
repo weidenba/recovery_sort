@@ -2,5 +2,5 @@ pytest
 pytest-pep8
 python-magic
 pluginbase
--e git+https://github.com/fkie-cad/common_helper_files.git#egg=common_helper_files
--e git+https://github.com/fkie-cad/common_helper_passwords.git#egg=common_helper_passwords
+git+https://github.com/fkie-cad/common_helper_files.git
+git+https://github.com/fkie-cad/common_helper_passwords.git

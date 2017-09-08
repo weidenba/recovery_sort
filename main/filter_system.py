@@ -5,13 +5,12 @@ from pluginbase import PluginBase
 
 class FilterSystem():
 
-    plugin_base = PluginBase(package='recovery_sort.filter_plugins')
-
     def __init__(self, file_stock, filter_list):
         self._init_pugins()
         return self._apply_filters(file_stock, filter_list)
 
     def _init_plugins(self):
+        self.plugin_base = PluginBase(package='filter_plugins')
         self.filter_plugins = dict()
         self.plugin_source = self.plugin_base.make_plugin_source(searchpath=[os.path.join(get_dir_of_file(__file__), '../filter_plugins')])
         plugin_list = self.plugin_source.list_plugins()
