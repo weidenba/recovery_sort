@@ -2,12 +2,12 @@ import os
 
 from main.stocktaking import stocktaking
 from helper.file_system import fail_safe_copy
-from main.filter import Filter
+from main.filter_system import FilterSystem
 
 
 def reorganize_files(input_dir, out_dir, filter_list):
     file_stock = stocktaking(input_dir)
-    file_stock = Filter(file_stock, filter_list)
+    file_stock = FilterSystem(file_stock, filter_list)
     _store_to_new_location(file_stock, out_dir)
 
 

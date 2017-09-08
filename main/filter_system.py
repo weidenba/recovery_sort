@@ -3,7 +3,7 @@ from common_helper_files import get_dir_of_file
 from pluginbase import PluginBase
 
 
-class Filter():
+class FilterSystem():
 
     plugin_base = PluginBase(package='recovery_sort.filter_plugins')
 
