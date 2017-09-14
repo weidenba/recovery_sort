@@ -1,5 +1,5 @@
 from common_helper_files import get_binary_from_file
-from hashlib import sha512
+from hashlib import sha256
 import os
 import time
 import logging
@@ -11,7 +11,7 @@ def generate_uid(file_path):
     file_data = get_binary_from_file(file_path)
     if file_data == b'':
         return "0_0"
-    file_hash = sha512(file_data).hexdigest()
+    file_hash = sha256(file_data).hexdigest()
     file_size = get_file_size(file_path)
     return "{}_{}".format(file_hash, file_size)
 

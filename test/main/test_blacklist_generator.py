@@ -15,8 +15,8 @@ def test_generate_blacklist_uids():
     input_files.append(os.path.join(TEST_DATA_DIR, 'a_folder/a_test_file'))
     result = _generate_blacklist_uids(input_files)
     assert len(result) == 2
-    assert '7edc13f6c2fb4a4d983d754f1000364c7aa645a663bbd719e803103b335f2994081ff48454507a4db9fc38beacb93971c28d2f20303ff16f9082f56210663a82_287352' in result
-    assert 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff_4' in result
+    assert '2e3a5a43a8516b8cdac92161f890a68caa5ac5b820125378c586ac40fe45250f_287352' in result
+    assert '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08_4' in result
 
 
 def test_store_blacklist():
@@ -29,7 +29,7 @@ def test_store_blacklist():
     assert result == b'abc\ndef'
 
 
-@pytest.mark.parametrize('input_dir, expected', [(os.path.join(TEST_DATA_DIR, 'a_folder'), b'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff_4'), ('/nonexisting/', b'')])
+@pytest.mark.parametrize('input_dir, expected', [(os.path.join(TEST_DATA_DIR, 'a_folder'), b'9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08_4'), ('/nonexisting/', b'')])
 def test_create_blacklist(input_dir, expected):
     tmp_dir = TemporaryDirectory()
     tmp_file_path = os.path.join(tmp_dir.name, 'blacklist_test_file.txt')

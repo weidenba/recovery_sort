@@ -4,9 +4,9 @@ from filter_plugins.blacklist import filter_function, _apply_blacklist_filter
 
 def test_filter_function():
     test_stock = {
-        '4399a63790261b66220050d60396736c55af15e5c4fb5d00806acd79faf27a936453bca773d508baf1fb88d302e6c03fc9925d31ed2ce3f1939f3a7e40847897_159':
+        'ed1015323e7c3a16936523ce1a64928a805f5b37534d74b596570d6931dc5684_159':
         {
-            'uid': '4399a63790261b66220050d60396736c55af15e5c4fb5d00806acd79faf27a936453bca773d508baf1fb88d302e6c03fc9925d31ed2ce3f1939f3a7e40847897_159',
+            'uid': 'ed1015323e7c3a16936523ce1a64928a805f5b37534d74b596570d6931dc5684_159',
             'name': 'test_file',
             'size': 159,
             'mime': 'image/png'
