@@ -2,6 +2,8 @@
 import argparse
 import logging
 import sys
+import os
+from common_helper_files import get_dir_of_file
 
 from main.blacklist_generator import create_blacklist
 
@@ -10,13 +12,15 @@ PROGRAM_NAME = 'Recovery Sort - Blacklist Generator'
 PROGRAM_VERSION = '0.1'
 PROGRAM_DESCRIPTION = 'Generate blacklists to be used with Recovery Sort'
 
+default_out_file = os.path.join(get_dir_of_file(__file__), 'blacklist/user_generated_blacklist')
+
 
 def _setup_argparser():
     parser = argparse.ArgumentParser(description='{} - {}'.format(PROGRAM_NAME, PROGRAM_DESCRIPTION))
     parser.add_argument('-V', '--version', action='version', version='{} {}'.format(PROGRAM_NAME, PROGRAM_VERSION))
     parser.add_argument('-d', '--debug', action='store_true', default=False, help='print debug messages')
     parser.add_argument('input_dir', help='input directory')
-    parser.add_argument('out_file', help='blacklist_file')
+    parser.add_argument('-o', '--out_file', default=default_out_file, help='blacklist_file')
     return parser.parse_args()
 
 
