@@ -1,6 +1,7 @@
 import os
 from common_helper_files import get_dir_of_file
 from pluginbase import PluginBase
+import logging
 
 
 class FilterSystem():
@@ -24,4 +25,7 @@ class FilterSystem():
         for filter_name in filter_list:
             if filter_name in self.filter_plugins:
                 file_stock = self.filter_plugins[filter_name](file_stock)
+                logging.info('{} files left after {} filter'.format(len(file_stock), filter_name))
+            else:
+                logging.error('Filter {} not available!'.format(filter_name))
         return file_stock
