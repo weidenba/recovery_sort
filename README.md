@@ -60,6 +60,8 @@ INPUT_DIRECTORY shall contain all files you would like to blacklist.
 The generated list is stored to */blacklist/user_generated_blacklist*.  
 For more advanced features have a look at the "--help" option.
 
+### thumbnail
+Ignore thumbnail files recovered by [PhotoRec](http://www.cgsecurity.org/wiki/PhotoRec).
+
 ## Future Work
-* photorec thumbnail file filter
 * MP3 renaming based on Meta-Data
