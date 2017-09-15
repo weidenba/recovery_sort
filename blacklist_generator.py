@@ -2,13 +2,17 @@
 import argparse
 import logging
 import sys
+import os
+from common_helper_files import get_dir_of_file
 
-from main.main import reorganize_files
+from main.blacklist_generator import create_blacklist
 
 
-PROGRAM_NAME = 'Recovery Sort'
-PROGRAM_VERSION = '0.2'
-PROGRAM_DESCRIPTION = 're-organize files by type and date'
+PROGRAM_NAME = 'Recovery Sort - Blacklist Generator'
+PROGRAM_VERSION = '0.1'
+PROGRAM_DESCRIPTION = 'Generate blacklists to be used with Recovery Sort'
+
+default_out_file = os.path.join(get_dir_of_file(__file__), 'blacklist/user_generated_blacklist')
 
 
 def _setup_argparser():
@@ -16,8 +20,7 @@ def _setup_argparser():
     parser.add_argument('-V', '--version', action='version', version='{} {}'.format(PROGRAM_NAME, PROGRAM_VERSION))
     parser.add_argument('-d', '--debug', action='store_true', default=False, help='print debug messages')
     parser.add_argument('input_dir', help='input directory')
-    parser.add_argument('out_dir', help='output directory')
-    parser.add_argument('-f', '--filter', default=[], help='Set filter. Can be used multiple times.', action='append', type=str)
+    parser.add_argument('-o', '--out_file', default=default_out_file, help='blacklist_file')
     return parser.parse_args()
 
 
@@ -37,10 +40,10 @@ if __name__ == '__main__':
     args = _setup_argparser()
     _setup_logging(args)
 
-    logging.info('Re-organize files in {}'.format(args.input_dir))
-    logging.info('Result storage: {}'.format(args.out_dir))
-    logging.debug('filters: {}'.format(args.filter))
-    reorganize_files(args.input_dir, args.out_dir, args.filter)
+    logging.info('Generate blacklist from files in {}'.format(args.input_dir))
+    logging.info('Store blacklist to: {}'.format(args.out_file))
 
-    logging.info('Re-organizing complete')
+    create_blacklist(args.input_dir, args.out_file)
+
+    logging.info('Blacklist complete')
     sys.exit()

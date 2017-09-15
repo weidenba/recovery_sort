@@ -36,7 +36,30 @@ The resulting folder/file structure will look like this:
 ```
 Duplicates are not copied.
 
+## Filter
+
+There is a filter system to ignore unintended files.
+Filters can be applied with the -f argument.
+You can apply several filters at once by using -f several times.  
+
+```sh
+$ ./recovery_sort.py -f FILTER_1 [-f FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
+```
+
+### blacklist
+Ignore files that are on a blacklist.
+Blacklists are stored in the */blacklist* folder.
+We provide blacklists for Windows and widely spread software.
+You can add your own blacklist by using the blacklist_generator. 
+
+```sh
+$ ./blacklist_generator.py INPUT_DIRECTORY
+```
+
+INPUT_DIRECTORY shall contain all files you would like to blacklist.
+The generated list is stored to */blacklist/user_generated_blacklist*.  
+For more advanced features have a look at the "--help" option.
+
 ## Future Work
-* blacklist filter
 * photorec thumbnail file filter
 * MP3 renaming based on Meta-Data

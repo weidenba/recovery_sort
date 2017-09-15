@@ -11,7 +11,7 @@ TEST_FILE_PATH = os.path.join(TEST_DATA_DIR, 'small_image.png')
 
 
 @pytest.mark.parametrize('input_data, expected', [
-    (TEST_FILE_PATH, '4399a63790261b66220050d60396736c55af15e5c4fb5d00806acd79faf27a936453bca773d508baf1fb88d302e6c03fc9925d31ed2ce3f1939f3a7e40847897_159'),
+    (TEST_FILE_PATH, 'ed1015323e7c3a16936523ce1a64928a805f5b37534d74b596570d6931dc5684_159'),
     ('none_existing_file', '0_0')
 ])
 def test_generate_uid(input_data, expected):
