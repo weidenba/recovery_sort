@@ -24,4 +24,4 @@ def _apply_blacklist_filter(file_stock, blacklist):
 
 
 def _get_blacklist_dir():
-    return os.path.join(get_dir_of_file(__file__), '../blacklists')
+    return os.path.join(get_dir_of_file(__file__), '../blacklist')
