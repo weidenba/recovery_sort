@@ -7,7 +7,7 @@ from main.main import reorganize_files
 
 
 PROGRAM_NAME = 'Recovery Sort'
-PROGRAM_VERSION = '0.3'
+PROGRAM_VERSION = '0.4'
 PROGRAM_DESCRIPTION = 're-organize files by type and date'
 
 
@@ -17,7 +17,7 @@ def _setup_argparser():
     parser.add_argument('-d', '--debug', action='store_true', default=False, help='print debug messages')
     parser.add_argument('input_dir', help='input directory')
     parser.add_argument('out_dir', help='output directory')
-    parser.add_argument('-f', '--filter', default=[], help='Set filter. Can be used multiple times. Available filters: blacklist, thumbnail', action='append', type=str)
+    parser.add_argument('-f', '--filter', default=[], help='Set filter. Can be used multiple times. Available filters: blacklist, small_video, thumbnail', action='append', type=str)
     return parser.parse_args()
 
 
