@@ -1,26 +1,17 @@
 import pytest
-from filter_plugins.blacklist import filter_function, _apply_blacklist_filter
+import filter_plugins.blacklist
 
 
-def test_filter_function():
-    test_stock = {
-        'ed1015323e7c3a16936523ce1a64928a805f5b37534d74b596570d6931dc5684_159':
-        {
-            'uid': 'ed1015323e7c3a16936523ce1a64928a805f5b37534d74b596570d6931dc5684_159',
-            'name': 'test_file',
-            'size': 159,
-            'mime': 'image/png'
-        }
-    }
-    result = filter_function(test_stock)
-    assert type(result) == dict
+def test_get_blacklist():
+    assert len(filter_plugins.blacklist.BLACKLIST) == 0
+    filter_plugins.blacklist._get_blacklist()
+    assert len(filter_plugins.blacklist.BLACKLIST) > 0
 
 
-@pytest.mark.parametrize('input_stock, blacklist, expected', [
-    ({'a': 1, 'b': 2, 'c': 3}, {'a', 'b'}, {'c': 3}),
-    ({'a': 1}, {'a', 'b', 'c'}, dict()),
-    (dict(), {'a', 'b', 'c'}, dict()),
-    ({'a': 1}, set(), {'a': 1})
+@pytest.mark.parametrize('file_meta, blacklist, expected', [
+    ({'uid': 'a'}, set('ab'), True),
+    ({'uid': 'a'}, set(), False)
 ])
-def test_apply_blacklist_filter(input_stock, blacklist, expected):
-    assert _apply_blacklist_filter(input_stock, blacklist) == expected
+def test_apply_blacklist_filter(file_meta, blacklist, expected):
+    filter_plugins.blacklist.BLACKLIST = blacklist
+    assert filter_plugins.blacklist.filter_function(file_meta) == expected

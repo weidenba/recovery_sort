@@ -3,7 +3,7 @@ import argparse
 import logging
 import sys
 
-from main.main import reorganize_files
+from main.ReOrganizer import ReOrganizer
 
 
 PROGRAM_NAME = 'Recovery Sort'
@@ -37,10 +37,13 @@ if __name__ == '__main__':
     args = _setup_argparser()
     _setup_logging(args)
 
+    file_organizer = ReOrganizer(args.out_dir, args.filter)
+
     logging.info('Re-organize files in {}'.format(args.input_dir))
     logging.info('Result storage: {}'.format(args.out_dir))
-    logging.debug('filters: {}'.format(args.filter))
-    reorganize_files(args.input_dir, args.out_dir, args.filter)
+    logging.debug('filters: {}'.format(file_organizer.filter_system.filters_to_apply))
+
+    file_organizer.reorganize_files(args.input_dir)
 
     logging.info('Re-organizing complete')
     sys.exit()
