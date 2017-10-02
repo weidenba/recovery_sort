@@ -1,8 +1,10 @@
 import os
+import re
 from common_helper_files import get_dir_of_file
 from tempfile import TemporaryDirectory
 
 from main.ReOrganizer import ReOrganizer
+from common_helper_files.fail_safe_file_operations import get_files_in_dir
 
 
 TEST_DATA_DIR = os.path.join(get_dir_of_file(__file__), '../data')
@@ -35,10 +37,17 @@ def test_store_to_new_location():
 
 
 def test_process_file():
-    # ToDo
-    pass
+    tmp_dir = TemporaryDirectory()
+    re_organizer = ReOrganizer(out_dir=tmp_dir.name, testing=False)
+    re_organizer._process_file(TEST_FILE_PATH)
+    result = get_files_in_dir(tmp_dir.name)
+    assert len(result) == 1
+    assert re.search(r'image\/png\/[0-9]{4}-[0-9]{2}-[0-9]{2}_small_image\.png', result[0]) is not None
 
 
 def test_reorganize_files():
-    # ToDo
-    pass
+    tmp_dir = TemporaryDirectory()
+    re_organizer = ReOrganizer(out_dir=tmp_dir.name, testing=False)
+    re_organizer.reorganize_files(TEST_DATA_DIR)
+    result = get_files_in_dir(tmp_dir.name)
+    assert len(result) == 3

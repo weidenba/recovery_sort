@@ -7,7 +7,7 @@ from main.ReOrganizer import ReOrganizer
 
 
 PROGRAM_NAME = 'Recovery Sort'
-PROGRAM_VERSION = '0.4'
+PROGRAM_VERSION = '1.0'
 PROGRAM_DESCRIPTION = 're-organize files by type and date'
 
 
