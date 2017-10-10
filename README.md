@@ -1,5 +1,6 @@
 # Recovery Sort
 [![Build Status](https://travis-ci.org/weidenba/recovery_sort.svg)](https://travis-ci.org/weidenba/recovery_sort)
+[![codecov](https://codecov.io/gh/weidenba/recovery_sort/branch/master/graph/badge.svg)](https://codecov.io/gh/weidenba/recovery_sort)
 
 Re-organize files by type and date; filter duplicates and unintended files.
 
