@@ -6,15 +6,17 @@ import logging
 
 class FilterSystem():
 
-    def __init__(self, filters_to_apply=[]):
+    FILTER_TYPE = None
+
+    def __init__(self, selected_filters):
+        print('base_filter_init')
         self._init_plugins()
-        self._file_cache = set()
-        self._set_filters_to_apply(filters_to_apply)
+        self._set_filters_to_apply(selected_filters)
 
     def _init_plugins(self):
-        self.plugin_base = PluginBase(package='filter_plugins')
+        self.plugin_base = PluginBase(package='filter_plugins.{}'.format(self.FILTER_TYPE))
         self.filter_plugins = dict()
-        self.plugin_source = self.plugin_base.make_plugin_source(searchpath=[os.path.join(get_dir_of_file(__file__), '../filter_plugins')])
+        self.plugin_source = self.plugin_base.make_plugin_source(searchpath=[os.path.join(get_dir_of_file(__file__), '../filter_plugins/{}'.format(self.FILTER_TYPE))])
         plugin_list = self.plugin_source.list_plugins()
         for item in plugin_list:
             plugin = self.plugin_source.load_plugin(item)
@@ -23,18 +25,9 @@ class FilterSystem():
     def register_plugin(self, name, filter_function):
         self.filter_plugins[name] = filter_function
 
-    def filtered(self, file_meta):
-        for c_filter in self.filters_to_apply:
-            if self.filter_plugins[c_filter](file_meta, file_cache=self._file_cache):
-                self.counter[c_filter] += 1
-                logging.debug('{} ignored -> {}'.format(file_meta['path'], c_filter))
-                return True
-        self._file_cache.add(file_meta['uid'])
-        return False
-
     def _set_filters_to_apply(self, filter_list):
-        self.counter = {'duplicate': 0}
-        self.filters_to_apply = ['duplicate']
+        self.counter = dict()
+        self.filters_to_apply = list()
         for item in filter_list:
             if item in self.filter_plugins:
                 self.filters_to_apply.append(item)

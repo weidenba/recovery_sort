@@ -37,14 +37,14 @@ The resulting folder/file structure will look like this:
 ```
 Duplicates are not copied.
 
-## Filter
+## Ignore Filter
 
 There is a filter system to ignore unintended files.
 Filters can be applied with the -f argument.
 You can apply several filters at once by using -f several times.  
 
 ```sh
-$ ./recovery_sort.py -f FILTER_1 [-f FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
+$ ./recovery_sort.py -i FILTER_1 [-f FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
 
 ### blacklist

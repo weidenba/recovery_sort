@@ -1,10 +1,9 @@
 import os
 import re
-from common_helper_files import get_dir_of_file
+from common_helper_files import get_dir_of_file, get_files_in_dir
 from tempfile import TemporaryDirectory
 
 from main.ReOrganizer import ReOrganizer
-from common_helper_files.fail_safe_file_operations import get_files_in_dir
 
 
 TEST_DATA_DIR = os.path.join(get_dir_of_file(__file__), '../data')

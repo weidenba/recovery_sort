@@ -1,5 +1,5 @@
 import pytest
-from filter_plugins.small_video import filter_function
+from filter_plugins.ignore.small_video import filter_function
 
 
 @pytest.mark.parametrize('file_meta, expected', [
