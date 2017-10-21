@@ -18,7 +18,6 @@ def test_help():
 def test_no_filter():
     tmp_dir = TemporaryDirectory()
     output, return_code = execute_shell_command_get_return_code('{} -i thumbnail {} {}'.format(MAINSCRIPT, TEST_DATA_DIR, tmp_dir.name), timeout=10)
-    print(output)
     assert return_code == 0
     assert '[recovery_sort][INFO]: Re-organizing complete' in output
     assert '[ReOrganizer][INFO]: 1 files ignored -> duplicate' in output

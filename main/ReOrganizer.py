@@ -5,6 +5,7 @@ import os
 from helper.file_system import fail_safe_copy
 from filter_system.ignore import IgnoreFilterSystem
 from main.stocktaking import get_file_meta
+from filter_system.rename import RenameFilterSystem
 
 
 class ReOrganizer():
@@ -14,8 +15,10 @@ class ReOrganizer():
         self.copy_counter = 0
         if not testing:
             self.ignore_filter_system = IgnoreFilterSystem(ignore_filters_to_apply)
+            self.rename_filter_system = RenameFilterSystem(rename_filters_to_apply)
         else:
             self.ignore_filter_system = None
+            self.rename_filter_system = None
 
     def reorganize_files(self, input_dir):
         files = get_files_in_dir(input_dir)
