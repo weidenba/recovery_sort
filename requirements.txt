@@ -3,6 +3,7 @@ pytest-pep8
 pytest-cov
 python-magic
 pluginbase
+eyeD3
 git+https://github.com/fkie-cad/common_helper_files.git
 git+https://github.com/fkie-cad/common_helper_passwords.git
 git+https://github.com/fkie-cad/common_helper_process.git
