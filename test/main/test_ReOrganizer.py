@@ -49,4 +49,4 @@ def test_reorganize_files():
     re_organizer = ReOrganizer(out_dir=tmp_dir.name, testing=False)
     re_organizer.reorganize_files(TEST_DATA_DIR)
     result = get_files_in_dir(tmp_dir.name)
-    assert len(result) == 3
+    assert len(result) == 5
