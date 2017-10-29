@@ -43,7 +43,7 @@ if __name__ == '__main__':
     logging.info('Re-organize files in {}'.format(args.input_dir))
     logging.info('Result storage: {}'.format(args.out_dir))
     logging.debug('ignore filters: {}'.format(file_organizer.ignore_filter_system.filters_to_apply))
-#    logging.debug('rename filters: {}'.format(file_organizer.rename_filter_system.filters_to_apply))
+    logging.debug('rename filters: {}'.format(file_organizer.rename_filter_system.filters_to_apply))
 
     file_organizer.reorganize_files(args.input_dir)
 
