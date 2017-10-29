@@ -8,7 +8,6 @@ class IgnoreFilterSystem(FilterSystem):
     FILTER_TYPE = 'ignore'
 
     def __init__(self, filters_to_apply):
-        print('ignore_filter_init')
         super().__init__(filters_to_apply)
         self._file_cache = set()
         self.filters_to_apply.insert(0, 'duplicate')
