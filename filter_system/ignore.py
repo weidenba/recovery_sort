@@ -10,8 +10,9 @@ class IgnoreFilterSystem(FilterSystem):
     def __init__(self, filters_to_apply):
         super().__init__(filters_to_apply)
         self._file_cache = set()
-        self.filters_to_apply.insert(0, 'duplicate')
-        self.counter['duplicate'] = 0
+        if 'duplicate' not in self.filters_to_apply:
+            self.filters_to_apply.insert(0, 'duplicate')
+            self.counter['duplicate'] = 0
 
     def filtered(self, file_meta):
         for c_filter in self.filters_to_apply:

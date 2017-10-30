@@ -11,7 +11,11 @@ class FilterSystem():
     def __init__(self, selected_filters):
         print('base_filter_init')
         self._init_plugins()
-        self._set_filters_to_apply(selected_filters)
+        if selected_filters == 'all':
+            self._set_all_filters()
+        else:
+            self._set_filters_to_apply(selected_filters)
+        self._setup_counters()
 
     def _init_plugins(self):
         self.plugin_base = PluginBase(package='filter_plugins.{}'.format(self.FILTER_TYPE))
@@ -25,12 +29,18 @@ class FilterSystem():
     def register_plugin(self, name, filter_function):
         self.filter_plugins[name] = filter_function
 
-    def _set_filters_to_apply(self, filter_list):
+    def _set_all_filters(self):
+        self.filters_to_apply = list(self.filter_plugins.keys())
+
+    def _setup_counters(self):
         self.counter = dict()
+        for item in self.filters_to_apply:
+            self.counter[item] = 0
+
+    def _set_filters_to_apply(self, filter_list):
         self.filters_to_apply = list()
         for item in filter_list:
             if item in self.filter_plugins:
                 self.filters_to_apply.append(item)
-                self.counter[item] = 0
             else:
                 logging.error('Filter "" is not available!'.format(item))
