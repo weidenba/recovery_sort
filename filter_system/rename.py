@@ -7,4 +7,4 @@ class RenameFilterSystem(FilterSystem):
 
     def rename(self, file_meta):
         for c_filter in self.filters_to_apply:
-            c_filter(file_meta)
+            self.filter_plugins[c_filter](file_meta)
