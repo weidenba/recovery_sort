@@ -30,6 +30,7 @@ class ReOrganizer():
     def _process_file(self, input_file):
         file_meta = get_file_meta(input_file)
         if not self.ignore_filter_system.filtered(file_meta):
+            self.rename_filter_system.rename(file_meta)
             self._store_to_new_location(file_meta)
 
     def _store_to_new_location(self, file_meta):
