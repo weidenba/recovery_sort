@@ -43,4 +43,4 @@ class FilterSystem():
             if item in self.filter_plugins:
                 self.filters_to_apply.append(item)
             else:
-                logging.error('Filter "" is not available!'.format(item))
+                logging.error('Filter "{}" is not available!'.format(item))
