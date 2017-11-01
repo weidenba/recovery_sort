@@ -26,4 +26,4 @@ def _get_blacklist():
 
 
 def _get_blacklist_dir():
-    return os.path.join(get_dir_of_file(__file__), '../blacklist')
+    return os.path.join(get_dir_of_file(__file__), '../../blacklist')

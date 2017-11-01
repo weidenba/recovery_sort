@@ -37,15 +37,16 @@ The resulting folder/file structure will look like this:
 ```
 Duplicates are not copied.
 
-## Filter
+## Ignore Filter
 
 There is a filter system to ignore unintended files.
-Filters can be applied with the -f argument.
-You can apply several filters at once by using -f several times.  
+Ignore filters can be applied with the -i argument.
+You can apply several filters at once by using -i several times.  
 
 ```sh
-$ ./recovery_sort.py -f FILTER_1 [-f FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
+$ ./recovery_sort.py -i FILTER_1 [-i FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
+If you'd like to add all available ignore filters, you can use the '-I' argument.
 
 ### blacklist
 Ignore files that are on a blacklist.
@@ -67,5 +68,28 @@ Ignore video files < 10KiB. These files are most likely broken.
 ### thumbnail
 Ignore thumbnail files recovered by [PhotoRec](http://www.cgsecurity.org/wiki/PhotoRec).
 
-## Future Work
-* MP3 renaming based on Meta-Data
+## Rename Filter
+There is filter system to rename files.
+Rename filters can be applied with the -r argument
+You can apply several filters at once by using -r several times.  
+
+```sh
+$ ./recovery_sort.py -r FILTER_1 [-r FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
+```
+If you'd like to add all available ignore filters, you can use the '-I' argument
+
+### mp3
+Sort mp3 files according to their meta data.
+The resulting folder/file structure will look like this:
+
+```sh
+.
+└── audio
+    └── mpeg
+        ├── John Doe
+        │   └── Best Album Ever
+        │       └── The best Song Ever.mp3
+        └── Jane Doe
+            └── Just Another Album
+                └── Fantastic Song.mp3
+```

@@ -1,6 +1,6 @@
 import pytest
 
-from filter_plugins.thumbnail import filter_function
+from filter_plugins.ignore.thumbnail import filter_function
 
 
 @pytest.mark.parametrize('name, expected', [

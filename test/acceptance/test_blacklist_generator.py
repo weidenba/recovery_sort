@@ -21,9 +21,20 @@ def test_blacklist_generation():
     output, return_code = execute_shell_command_get_return_code('{} -o {} {}'.format(MAINSCRIPT, blacklist_file, TEST_DATA_DIR), timeout=60)
     assert return_code == 0
     assert os.path.exists(blacklist_file)
-    assert '4 files found' in output
-    assert 'Blacklisting 3 unique files' in output
+    assert '6 files found' in output
+    assert 'Blacklisting 5 unique files' in output
     blacklist_entries = get_string_list_from_file(blacklist_file)
-    assert len(blacklist_entries) == 3
+    assert len(blacklist_entries) == 5
     assert '2e3a5a43a8516b8cdac92161f890a68caa5ac5b820125378c586ac40fe45250f_287352' in blacklist_entries
+    tmp_dir.cleanup()
+
+
+def test_blacklist_generation_debug():
+    tmp_dir = TemporaryDirectory()
+    blacklist_file = os.path.join(tmp_dir.name, 'test.bl')
+    output, return_code = execute_shell_command_get_return_code('{} -d -o {} {}'.format(MAINSCRIPT, blacklist_file, TEST_DATA_DIR), timeout=60)
+    assert return_code == 0
+    assert os.path.exists(blacklist_file)
+    assert '6 files found' in output
+    assert 'Blacklisting 5 unique files' in output
     tmp_dir.cleanup()
