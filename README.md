@@ -15,7 +15,7 @@ Since Recovery Sort relies on file/magic it will not run on Windows at the momen
 $ sudo -EH pip3 install -r requirements.txt
 $ ./recovery_sort.py INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
-For more advanced features and optional filtering of unintended files have a look at the "--help" option.
+For more advanced features and optional filtering of unintended files have a look at the *--help* option.
 
 ## Result
 Recovery sort creates new folders and copy the files into them.  
@@ -40,13 +40,13 @@ Duplicates are not copied.
 ## Ignore Filter
 
 There is a filter system to ignore unintended files.
-Ignore filters can be applied with the -i argument.
-You can apply several filters at once by using -i several times.  
+Ignore filters can be applied with the *-i* argument.
+You can apply several filters at once by using *-i* several times.  
 
 ```sh
 $ ./recovery_sort.py -i FILTER_1 [-i FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
-If you'd like to add all available ignore filters, you can use the '-I' argument.
+If you'd like to add all available ignore filters, you can use the *-I* argument.
 
 ### blacklist
 Ignore files that are on a blacklist.
@@ -60,7 +60,6 @@ $ ./blacklist_generator.py INPUT_DIRECTORY
 
 INPUT_DIRECTORY shall contain all files you would like to blacklist.
 The generated list is stored to */blacklist/user_generated_blacklist*.  
-For more advanced features have a look at the "--help" option.
 
 ### small_video
 Ignore video files < 10KiB. These files are most likely broken.
@@ -69,14 +68,14 @@ Ignore video files < 10KiB. These files are most likely broken.
 Ignore thumbnail files recovered by [PhotoRec](http://www.cgsecurity.org/wiki/PhotoRec).
 
 ## Rename Filter
-There is filter system to rename files.
-Rename filters can be applied with the -r argument
-You can apply several filters at once by using -r several times.  
+There is a filter system to rename files.
+Rename filters can be applied with the *-r* argument.
+You can apply several filters at once by using *-r* several times.  
 
 ```sh
 $ ./recovery_sort.py -r FILTER_1 [-r FILTER 2 ...] INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
-If you'd like to add all available ignore filters, you can use the '-I' argument
+If you'd like to add all available rename filters, you can use the *-R* argument
 
 ### mp3
 Sort mp3 files according to their meta data.
