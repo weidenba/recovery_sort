@@ -9,7 +9,6 @@ class FilterSystem():
     FILTER_TYPE = None
 
     def __init__(self, selected_filters):
-        print('base_filter_init')
         self._init_plugins()
         if selected_filters == 'all':
             self._set_all_filters()
