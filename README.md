@@ -14,7 +14,7 @@ Since Recovery Sort relies on file/magic it will not run on Windows at the momen
 
 ## Basic Usage
 ```sh
-$ sudo -EH pip3 install -r requirements.txt
+$ pip3 install --user -r requirements.txt
 $ ./recovery_sort.py INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
 For more advanced features and optional filtering of unintended files have a look at the *--help* option.
