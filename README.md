@@ -36,10 +36,10 @@ The resulting folder/file structure will look like this:
 ├── image
 │   ├── jpeg
 │   │   └── 2015
-│   │   	 └── 2015-01-01_photo.jpg
+│   │       └── 2015-01-01_photo.jpg
 │   └── png
 │       └── 2016
-│       	 └── 2016-05-25_icon.png
+│           └── 2016-05-25_icon.png
 └── text
     └── plain
         └── 2017

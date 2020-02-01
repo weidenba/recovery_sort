@@ -7,9 +7,12 @@ NAME = 'mp3'
 
 def filter_function(file_meta):
     if file_meta['mime'] == 'audio/mpeg':
-        mp3_meta = _get_mp3_meta(file_meta)
-        if mp3_meta:
-            file_meta['name'] = '{}/{}/{}.mp3'.format(mp3_meta['album_artist'], mp3_meta['album'], mp3_meta['title'])
+        try:
+            mp3_meta = _get_mp3_meta(file_meta)
+            if mp3_meta:
+                file_meta['name'] = '{}/{}/{}.mp3'.format(mp3_meta['album_artist'], mp3_meta['album'], mp3_meta['title'])
+        except Exception as e:
+            logging.error('Could not read meta {}: {} - {} '.format(file_meta['path'], sys.exc_info()[0].__name__, e))
 
 
 def setup(app):
@@ -23,7 +26,7 @@ def _get_mp3_meta(file_meta):
         logging.error('Could not read meta {}: {} - {} '.format(file_meta['path'], sys.exc_info()[0].__name__, e))
         return None
     else:
-        meta = {}
+        meta = dict()
         meta['album_artist'] = mp3_file.tag.album_artist
         meta['album'] = mp3_file.tag.album
         meta['title'] = mp3_file.tag.title
