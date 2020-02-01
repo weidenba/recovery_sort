@@ -9,14 +9,20 @@ Re-organize files by type and date; filter duplicates and unintended files.
 ## Requirements
 Since Recovery Sort relies on file/magic it will not run on Windows at the moment.  
 
-* Python >= 3.4
+* Python >= 3.6
 * PIP
 
-## Basic Usage
+## Installation and Basic Usage
+
 ```sh
-$ pip3 install --user -r requirements.txt
-$ ./recovery_sort.py INPUT_DIRECTORY OUTPUT_DIRECTOTRY
+# create virtual env
+$ python3 -m venv venv
+$ . venv/bin/activate
+# install requirements
+(venv)$ pip3 install -r requirements.txt
+(venv)$ ./recovery_sort.py INPUT_DIRECTORY OUTPUT_DIRECTOTRY
 ```
+
 For more advanced features and optional filtering of unintended files have a look at the *--help* option.
 
 ## Result
@@ -29,12 +35,15 @@ The resulting folder/file structure will look like this:
 .
 ├── image
 │   ├── jpeg
-│   │   └── 2015-01-01_photo.jpg
+│   │   └── 2015
+│   │   	 └── 2015-01-01_photo.jpg
 │   └── png
-│       └── 2016-05-25_icon.png
+│       └── 2016
+│       	 └── 2016-05-25_icon.png
 └── text
     └── plain
-        └── 2017-09-06_text.txt
+        └── 2017
+            └── 2017-09-06_text.txt
 
 ```
 Duplicates are not copied.

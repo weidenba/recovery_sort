@@ -40,7 +40,7 @@ class ReOrganizer():
 
     @staticmethod
     def _generate_new_file_path(file_meta):
-        return '{}/{}_{}'.format(file_meta['mime'], file_meta['mod_date'], file_meta['name'])
+        return '{mime_type}/{modification_year}/{modification_date}_{file_name}'.format(mime_type=file_meta['mime'], modification_year=file_meta['mod_date'][0:4], modification_date=file_meta['mod_date'], file_name=file_meta['name'])
 
     def _log_stats(self):
         logging.info('{} files copied to {}'.format(self.copy_counter, self.out_dir))
