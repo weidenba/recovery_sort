@@ -1,5 +1,5 @@
 pytest
-pytest-pep8
+pytest-flake8
 pytest-cov
 python-magic
 pluginbase
