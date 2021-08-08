@@ -1,5 +1,5 @@
 # Recovery Sort
-[![Build Status](https://travis-ci.org/weidenba/recovery_sort.svg)](https://travis-ci.org/weidenba/recovery_sort)
+[![Build Status](https://travis-ci.com/weidenba/recovery_sort.svg)](https://travis-ci.com/weidenba/recovery_sort)
 [![codecov](https://codecov.io/gh/weidenba/recovery_sort/branch/master/graph/badge.svg)](https://codecov.io/gh/weidenba/recovery_sort)
 [![BCH compliance](https://bettercodehub.com/edge/badge/weidenba/recovery_sort?branch=master)](https://bettercodehub.com/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7febe610a17749ba9fbb9db419bc842e)](https://www.codacy.com/app/weidenba/recovery_sort?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=weidenba/recovery_sort&amp;utm_campaign=Badge_Grade)
